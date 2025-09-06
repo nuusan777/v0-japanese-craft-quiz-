@@ -166,7 +166,7 @@ export default function QuizPage() {
           backgroundImage: 'url("/unnamed.png")',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'contain',
-          backgroundPosition: 'left 5px bottom',
+          backgroundPosition: 'center bottom',
         }}
       >
       </footer>

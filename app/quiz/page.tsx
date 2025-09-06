@@ -163,7 +163,15 @@ export default function QuizPage() {
         </div>
       </main>
       
-      <footer className="w-full h-20 bg-repeat-x bg-bottom" style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 20\'%3E%3Cpath fill=\'%23a0d8ef\' fill-opacity=\'0.3\' d=\'M0 10 Q 25 0, 50 10 T 100 10 L 100 20 L 0 20 Z\'%3E%3C/path%3E%3Cpath fill=\'%23a0d8ef\' fill-opacity=\'0.6\' d=\'M0 15 Q 25 5, 50 15 T 100 15 L 100 20 L 0 20 Z\'%3E%3C/path%3E%3C/svg%3E")'}}>
+      <footer
+        className="w-full h-56 bg-bottom"
+        style={{
+          backgroundImage: 'url("/unnamed.png")',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain',
+          backgroundPosition: 'center bottom',
+        }}
+      >
       </footer>
     </div>
   )

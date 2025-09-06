@@ -35,7 +35,7 @@ export default function GenreSelectionPage() {
             <h1 className="text-xl font-bold text-foreground">ジャンル選択</h1>
             <Link href="/">
               <Button variant="outline" size="sm">
-                ホームに戻る
+                戻る
               </Button>
             </Link>
           </div>

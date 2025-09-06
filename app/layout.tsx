@@ -13,8 +13,8 @@ const notoSerifJp = Noto_Serif_JP({
 })
 
 export const metadata: Metadata = {
-  title: '伝統工芸品クイズ', // タイトルも変更
-  description: '日本の美しい伝統工芸品について学ぼう',
+  title: '伝統品クイズ', // タイトルも変更
+  description: '日本の美しい伝統品について学ぼう',
   generator: 'v0.app',
 }
 

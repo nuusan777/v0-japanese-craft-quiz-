@@ -11,7 +11,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 text-center">
-              <h1 className="text-3xl font-bold text-foreground mb-1 animate-fade-in">日本伝統工芸品クイズ</h1>
+              <h1 className="text-3xl font-bold text-foreground mb-1 animate-fade-in">日本伝統品クイズ</h1>
               <p className="text-muted-foreground text-sm animate-fade-in-delay">Japanese Traditional Crafts Quiz</p>
             </div>
             <Link href="https://homepage-kappa-lemon.vercel.app/">
@@ -46,7 +46,7 @@ export default function HomePage() {
             <div className="relative mb-6">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-3xl opacity-30 animate-pulse-slow"></div>
               <h2 className="relative text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance leading-tight">
-                日本の美しい伝統工芸品について
+                日本の美しい伝統品について
                 <span className="text-primary">学ぼう</span>
               </h2>
             </div>
@@ -77,13 +77,13 @@ export default function HomePage() {
                     <BookOpen className="w-4 h-4 text-primary" />
                   </div>
                   <CardTitle className="text-primary group-hover:text-primary/80 transition-colors">
-                    243品目の工芸品
+                    243品目の伝統品
                   </CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <CardDescription className="leading-relaxed">
-                  陶器、織物、漆器、金工など、日本全国の伝統工芸品を網羅
+                  陶器、織物、漆器、金工など、日本全国の伝統品を網羅
                 </CardDescription>
               </CardContent>
             </Card>

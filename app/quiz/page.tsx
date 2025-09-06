@@ -149,11 +149,20 @@ export default function QuizPage() {
           <QuizProgress current={session.currentQuestionIndex + 1} total={session.questions.length} className="mb-8" />
           <QuestionDisplay question={currentQuestion} selectedAnswer={selectedAnswer} onAnswerSelect={handleAnswerSelect} showExplanation={showExplanation} className="mb-8" />
           <QuizNavigation
-            canGoBack={false}
+            canGoBack={session && session.currentQuestionIndex > 0}
             canSubmit={selectedAnswer !== null && !showExplanation}
             canNext={showExplanation}
             isLastQuestion={session.currentQuestionIndex === session.questions.length - 1}
-            onPrevious={() => {}}
+            onPrevious={() => {
+              if (session && session.currentQuestionIndex > 0) {
+                setSession({
+                  ...session,
+                  currentQuestionIndex: session.currentQuestionIndex - 1,
+                });
+                setSelectedAnswer(session.answers[session.currentQuestionIndex - 1]);
+                setShowExplanation(session.answers[session.currentQuestionIndex - 1] !== null);
+              }
+            }}
             onSubmit={handleAnswerSubmit}
             onNext={handleNextQuestion}
           />

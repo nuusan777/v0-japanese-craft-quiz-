@@ -84,7 +84,7 @@ export default function LeaderboardPage() {
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-4 py-6">
           <h1 className="text-3xl font-bold text-foreground text-center">ランキング</h1>
-          <p className="text-muted-foreground text-center mt-2">日本伝統工芸品クイズ - トップスコア</p>
+          <p className="text-muted-foreground text-center mt-2">日本伝統品クイズ - トップスコア</p>
         </div>
       </header>
 

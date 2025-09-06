@@ -28,7 +28,7 @@ export default function GenreSelectionPage() {
   }, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-amber-50">
+  <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-amber-50 font-serif">
       <header className="border-b border-border bg-card/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
@@ -44,12 +44,12 @@ export default function GenreSelectionPage() {
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto"> 
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-primary mb-4">挑戦したい工芸品のジャンルを選択してください</h2>
+            <h2 className="text-2xl font-bold text-primary mb-4">挑戦したい伝統品のジャンルを選択してください</h2>
             <p className="text-muted-foreground">各ジャンルから15問（易5問・中5問・難5問）が出題されます</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
             {Object.entries(GENRE_CATEGORIES).map(([key, genre]) => {
-                // 'all'カテゴリ以外のジャンルで、工芸品が0件の場合は表示しない
+                // 'all'カテゴリ以外のジャンルで、伝統品が0件の場合は表示しない
                 if (key !== 'all' && genre.crafts.length === 0) {
                     return null;
                 }
@@ -70,7 +70,7 @@ export default function GenreSelectionPage() {
                         <CardTitle className="text-lg text-center">{displayName}</CardTitle>
                         </CardHeader>
                         <CardContent className="pt-0">
-                        <p className="text-sm text-muted-foreground text-center">{craftCount}種類の工芸品</p>
+                        <p className="text-sm text-muted-foreground text-center">{craftCount}種類の伝統品</p>
                         {key === "all" && <p className="text-xs text-primary text-center mt-1">全ジャンルからランダム出題</p>}
                         </CardContent>
                     </Card>

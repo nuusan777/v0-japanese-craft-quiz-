@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { ScoreChart } from "@/components/quiz/score-chart"
+import { DonutChart } from "@/components/quiz/donut-chart"
 import { CategoryBreakdown } from "@/components/quiz/category-breakdown"
 import { ScoreSubmissionDialog } from "@/components/quiz/score-submission-dialog"
 import type { QuizQuestion, KnowledgeCategory } from "@/types/quiz"
@@ -87,161 +88,65 @@ export default function ResultsPage() {
   const scoreGrade = getScoreGrade(results.accuracy)
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-foreground text-center">クイズ結果</h1>
-        </div>
+    <div className="min-h-screen bg-background flex flex-col items-center">
+      <header className="w-full py-6 flex flex-col items-center">
+        <h1 className="text-3xl font-bold text-foreground text-center mb-2">クイズ結果</h1>
+        <span className="text-sm text-muted-foreground text-center">あなたの推し理解度は…</span>
+        <Link href="/" className="absolute top-6 right-6">
+          <Button variant="outline" size="sm">ホーム</Button>
+        </Link>
       </header>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto space-y-8">
-          {/* New Top Score Banner */}
-          {isNewTopScore && (
-            <Card className="border-yellow-200 bg-yellow-50">
-              <CardContent className="p-6">
-                <div className="flex items-center justify-center gap-2 text-yellow-800">
-                  <Award className="w-6 h-6" />
-                  <span className="text-lg font-bold">新記録達成！おめでとうございます！</span>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+      <main className="w-full flex flex-col items-center px-4">
+        {/* 円形グラフ（正答率） */}
+        <div className="flex flex-col items-center my-4">
+          <DonutChart value={results.accuracy} size={256} color="#7ec6e7" bgColor="#eaf6fa" textColor="#222" />
+        </div>
 
-          {/* Overall Score */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Trophy className="w-5 h-5 text-primary" />
-                総合結果
-                {currentRank && (
-                  <Badge variant="secondary" className="ml-auto">
-                    ランキング {currentRank}位
-                  </Badge>
-                )}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div
-                    className={`inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl font-bold ${scoreGrade.bg} ${scoreGrade.color} mb-2`}
-                  >
-                    {scoreGrade.grade}
-                  </div>
-                  <p className="text-sm text-muted-foreground">総合評価</p>
-                </div>
-
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">
-                    {results.correctAnswers}/{results.totalQuestions}
-                  </div>
-                  <p className="text-sm text-muted-foreground">正解数</p>
-                </div>
-
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">{Math.round(results.accuracy)}%</div>
-                  <p className="text-sm text-muted-foreground">正答率</p>
-                </div>
-
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">{formatTime(results.completionTime)}</div>
-                  <p className="text-sm text-muted-foreground">所要時間</p>
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <div className="flex justify-between text-sm mb-2">
-                  <span>正答率</span>
-                  <span>{Math.round(results.accuracy)}%</span>
-                </div>
-                <Progress value={results.accuracy} className="h-3" />
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Category Breakdown */}
+        {/* 分野別パフォーマンス（CategoryBreakdown）カード */}
+        <div className="w-full flex justify-center mb-8">
           <CategoryBreakdown categoryBreakdown={results.categoryBreakdown} />
+        </div>
 
-          {/* Performance Chart */}
-          <ScoreChart results={results} />
-
-          {/* Detailed Review */}
-          <Card>
-            <CardHeader>
-              <CardTitle>問題別詳細</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {results.questions.map((question, index) => {
-                  const userAnswer = results.answers[index]
-                  const isCorrect = userAnswer === question.answer
-
-                  return (
-                    <div key={question.id} className="border rounded-lg p-4">
-                      <div className="flex items-start justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <Badge variant="outline">問題 {index + 1}</Badge>
-                          <Badge className={isCorrect ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}>
-                            {isCorrect ? "正解" : "不正解"}
-                          </Badge>
-                        </div>
-                      </div>
-
-                      <h4 className="font-medium mb-2 text-balance">{question.question}</h4>
-
-                      <div className="grid md:grid-cols-2 gap-4 text-sm">
-                        <div>
-                          <span className="font-medium">あなたの回答: </span>
-                          <span className={isCorrect ? "text-green-600" : "text-red-600"}>
-                            {userAnswer || "未回答"}
-                          </span>
-                        </div>
-                        <div>
-                          <span className="font-medium">正解: </span>
-                          <span className="text-green-600">{question.answer}</span>
-                        </div>
-                      </div>
-
-                      {!isCorrect && (
-                        <div className="mt-3 p-3 bg-muted rounded">
-                          <p className="text-sm text-muted-foreground">
-                            <span className="font-medium">解説: </span>
-                            {question.explanation}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Actions */}
-          <div className="flex gap-4 justify-center">
-            <Link href="/leaderboard">
-              <Button variant="secondary" className="flex items-center gap-2">
-                <Trophy className="w-4 h-4" />
-                ランキングを見る
-              </Button>
-            </Link>
-            <Link href="/quiz">
-              <Button className="flex items-center gap-2">
-                <RotateCcw className="w-4 h-4" />
-                もう一度挑戦
-              </Button>
-            </Link>
-            <Link href="/">
-              <Button variant="outline">ホームに戻る</Button>
-            </Link>
+        {/* ランク・ポイント */}
+        <div className="flex justify-center items-center gap-8 my-6">
+          <div className="flex flex-col items-center">
+            <div className="w-20 h-20 rounded-full bg-pink-100 flex items-center justify-center mb-2 border-2 border-pink-300">
+              <span className="text-4xl font-bold text-pink-600">{currentRank ?? 5}</span>
+            </div>
+            <span className="text-xs font-bold tracking-widest text-foreground">伝統品愛着度ランク</span>
           </div>
+          <div className="flex flex-col items-center">
+            <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-2 border-2 border-gray-300">
+              <span className="text-4xl font-bold text-primary">{Math.round((results.correctAnswers / 15) * 100)}</span>
+            </div>
+            <span className="text-xs font-bold tracking-widest text-foreground">総獲得ポイント</span>
+          </div>
+        </div>
+
+        {/* 説明文 */}
+        <div className="bg-card rounded-lg p-4 text-center text-sm text-muted-foreground max-w-md mx-auto mb-6">
+          あなたはこの伝統品について<br />
+          <span className="font-bold text-lg text-primary">{Math.round(results.accuracy)}％理解していました。すばらしい！</span><br />
+          愛着度ランクをどんどん上げて<br />
+          抽選の当選率を高めよう！
+        </div>
+
+        {/* ボタン群 */}
+        <div className="flex flex-col gap-2 w-full max-w-md mx-auto mb-8">
+          <Link href="/quiz">
+            <Button className="w-full">もう一度挑戦する</Button>
+          </Link>
+          <Link href="/leaderboard">
+            <Button variant="secondary" className="w-full">ランキングを見る</Button>
+          </Link>
+          <Link href="/genre-selection">
+            <Button variant="outline" className="w-full">他の伝統品のクイズを学ぶ</Button>
+          </Link>
         </div>
       </main>
 
-      {/* Score Submission Dialog */}
+      {/* Score Submission Dialog（必要なら表示） */}
       <ScoreSubmissionDialog
         open={showSubmissionDialog}
         onOpenChange={setShowSubmissionDialog}

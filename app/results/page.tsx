@@ -144,6 +144,27 @@ export default function ResultsPage() {
             <Button variant="outline" className="w-full">他の伝統品のクイズを学ぶ</Button>
           </Link>
         </div>
+        {/* クイズ結果拡散ボタン */}
+        <div className="w-full max-w-md mx-auto flex justify-center gap-4 mb-10">
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('私の伝統品クイズ結果！あなたも挑戦してみて！ #伝統品クイズ')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full bg-[#1da1f2] text-white font-bold shadow hover:bg-[#1877f2] transition"
+          >Xで拡散</a>
+          <a
+            href={`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent('https://your-quiz-url.com')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full bg-[#00c300] text-white font-bold shadow hover:bg-[#009900] transition"
+          >LINEで拡散</a>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://your-quiz-url.com')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full bg-[#4267B2] text-white font-bold shadow hover:bg-[#29487d] transition"
+          >Facebookで拡散</a>
+        </div>
       </main>
 
       {/* Score Submission Dialog（必要なら表示） */}

@@ -20,7 +20,7 @@ const config = {
       // ★★★ 変更点：新しいフォントファミリーを追加 ★★★
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
-        serif: ["var(--font-noto-serif-jp)"], // 新しい明朝体
+        serif: ["'Hina Mincho', 'Noto Serif JP', serif"] // Hina Minchoを最優先
       },
       colors: {
         border: "hsl(var(--border))",

@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap');
 
 @layer base {
   :root {
@@ -53,8 +55,11 @@
   * {
     @apply border-border;
   }
+  html, body {
+    font-family: 'Hina Mincho', serif !important;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-serif;
   }
 }
 

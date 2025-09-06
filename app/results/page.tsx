@@ -61,7 +61,7 @@ export default function ResultsPage() {
             <p className="text-center">結果を読み込み中...</p>
             <div className="mt-4 text-center">
               <Link href="/">
-                <Button variant="outline">ホームに戻る</Button>
+                <Button variant="outline">クイズ選択に戻る</Button>
               </Link>
             </div>
           </CardContent>

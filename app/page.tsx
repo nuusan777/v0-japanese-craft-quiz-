@@ -14,6 +14,16 @@ export default function HomePage() {
               <h1 className="text-3xl font-bold text-foreground mb-1 animate-fade-in">日本伝統工芸品クイズ</h1>
               <p className="text-muted-foreground text-sm animate-fade-in-delay">Japanese Traditional Crafts Quiz</p>
             </div>
+            <Link href="https://homepage-kappa-lemon.vercel.app/">
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2 hover:bg-primary/10 hover:border-primary/20 transition-all duration-200 hover:scale-105 bg-transparent"
+              >
+                
+                ホーム
+              </Button>
+            </Link>
             <Link href="/leaderboard">
               <Button
                 variant="outline"

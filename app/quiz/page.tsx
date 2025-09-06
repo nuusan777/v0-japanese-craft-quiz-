@@ -132,19 +132,16 @@ export default function QuizPage() {
   return (
     <div className="min-h-screen bg-card flex flex-col font-serif">
       {/* ★★★ 変更点：ヘッダーに終了ボタンを追加 ★★★ */}
-      <header className="py-4 px-4">
-        <div className="container mx-auto flex justify-between items-center">
-            <div className="w-1/3"></div> {/* 左側のスペース確保用 */}
-            <div className="w-1/3 text-center">
-                <h1 className="text-2xl font-bold tracking-widest text-foreground">クイズ</h1>
-            </div>
-            <div className="w-1/3 flex justify-end">
-                <Link href="/genre-selection">
-                    <Button variant="outline" size="sm">終了</Button>
-                </Link>
-            </div>
+      <header className="py-4 px-4 relative">
+        <div className="container mx-auto flex flex-col items-center">
+          <h1 className="text-4xl font-bold tracking-widest text-foreground text-center break-words max-w-3xl mx-auto">推し理解度判定クイズ</h1>
+          <p className="text-xs text-muted-foreground text-center mt-2">正解数に応じてランクアップ！</p>
         </div>
-        <p className="text-xs text-muted-foreground text-center mt-1">正解数に応じてランクアップ！</p>
+        <div className="absolute top-2 right-2 z-10">
+          <Link href="/genre-selection">
+            <Button variant="outline" size="sm">終了</Button>
+          </Link>
+        </div>
       </header>
 
       <main className="container mx-auto px-4 py-8 flex-1 flex flex-col justify-center">
@@ -169,7 +166,7 @@ export default function QuizPage() {
           backgroundImage: 'url("/unnamed.png")',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'contain',
-          backgroundPosition: 'center bottom',
+          backgroundPosition: 'left 5px bottom',
         }}
       >
       </footer>

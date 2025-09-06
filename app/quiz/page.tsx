@@ -134,8 +134,8 @@ export default function QuizPage() {
       {/* ★★★ 変更点：ヘッダーに終了ボタンを追加 ★★★ */}
       <header className="py-4 px-4 relative">
         <div className="container mx-auto flex flex-col items-center">
-          <h1 className="text-4xl font-bold tracking-widest text-foreground text-center break-words max-w-3xl mx-auto">推し理解度判定クイズ</h1>
-          <p className="text-xs text-muted-foreground text-center mt-2">正解数に応じてランクアップ！</p>
+          <h1 className="text-3xl font-bold tracking-widest text-foreground text-center break-words max-w-3xl mx-auto">推し理解度判定クイズ</h1>
+          <p className="text-2s text-muted-foreground text-center mt-2">正解数に応じてランクアップ！</p>
         </div>
         <div className="absolute top-2 right-2 z-10">
           <Link href="/genre-selection">

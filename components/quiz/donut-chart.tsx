@@ -11,8 +11,8 @@ interface DonutChartProps {
 
 export const DonutChart: React.FC<DonutChartProps> = ({
   value,
-  size = 200,
-  strokeWidth = 24,
+  size = 400,
+  strokeWidth = 48,
   color = "#7ec6e7",
   bgColor = "#f3f3f3",
   textColor = "#222",
@@ -30,7 +30,9 @@ export const DonutChart: React.FC<DonutChartProps> = ({
         stroke={bgColor}
         strokeWidth={strokeWidth}
         fill="none"
+        strokeLinecap="butt"
       />
+      {/* ゲージ本体（下側端のみ丸） */}
       <circle
         cx={size / 2}
         cy={size / 2}
@@ -40,17 +42,20 @@ export const DonutChart: React.FC<DonutChartProps> = ({
         fill="none"
         strokeDasharray={circumference}
         strokeDashoffset={offset}
-        strokeLinecap="round"
+        strokeLinecap="butt"
         style={{ transition: "stroke-dashoffset 1s" }}
+        transform={`rotate(-90 ${size / 2} ${size / 2})`}
       />
       <text
         x="50%"
         y="50%"
         textAnchor="middle"
         dominantBaseline="central"
-        fontSize={size / 4}
+        fontSize={size / 6}
         fontWeight="bold"
         fill={textColor}
+        letterSpacing="0.4em"
+        style={{ letterSpacing: '0.4em' }}
       >
         {Math.round(value)}%
       </text>

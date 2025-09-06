@@ -1,3 +1,4 @@
+                <span className="text-black">学ぼう</span>
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
@@ -11,8 +12,8 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 text-center">
-              <h1 className="text-3xl font-bold text-foreground mb-1 animate-fade-in">日本伝統品クイズ</h1>
-              <p className="text-muted-foreground text-sm animate-fade-in-delay">Japanese Traditional Crafts Quiz</p>
+              <h1 className="text-3xl font-bold text-black mb-1 animate-fade-in">押し理解度判定　クイズ</h1>
+              <p className="text-black text-sm animate-fade-in-delay">Japanese Traditional Crafts Quiz</p>
             </div>
             <Link href="https://homepage-kappa-lemon.vercel.app/">
               <Button
@@ -45,12 +46,11 @@ export default function HomePage() {
           <div className="text-center mb-16 animate-fade-in-up">
             <div className="relative mb-6">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-3xl opacity-30 animate-pulse-slow"></div>
-              <h2 className="relative text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance leading-tight">
-                日本の美しい伝統品について
-                <span className="text-primary">学ぼう</span>
+              <h2 className="relative text-4xl md:text-5xl font-bold text-black mb-4 text-balance leading-tight tracking-widest">
+                日本の美しい伝統品について学ぼう
               </h2>
             </div>
-            <p className="text-xl text-muted-foreground mb-8 text-pretty max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-black mb-8 text-pretty max-w-2xl mx-auto leading-relaxed">
               陶器から織物まで、日本の豊かな工芸の歴史と技術を15問のクイズで探求しましょう
             </p>
             {/* ★★★ 変更点：「ランキングを見る」ボタンを削除し、「クイズを始める」を中央に ★★★ */}
@@ -143,8 +143,8 @@ export default function HomePage() {
                     <div className="w-2 h-2 rounded-full bg-primary"></div>
                     出題内容
                   </h4>
-                  <ul className="text-sm text-muted-foreground space-y-2">
-                    <li className="flex items-center gap-2 hover:text-foreground transition-colors">
+                  <ul className="text-sm text-black space-y-2">
+                    <li className="flex items-center gap-2 hover:text-black transition-colors">
                       <span className="w-1 h-1 rounded-full bg-primary/60"></span>
                       歴史・人物
                     </li>
@@ -175,8 +175,8 @@ export default function HomePage() {
                     <div className="w-2 h-2 rounded-full bg-accent"></div>
                     難易度
                   </h4>
-                  <ul className="text-sm text-muted-foreground space-y-2">
-                    <li className="flex items-center gap-2 hover:text-foreground transition-colors">
+                  <ul className="text-sm text-black space-y-2">
+                    <li className="flex items-center gap-2 hover:text-black transition-colors">
                       <span className="w-1 h-1 rounded-full bg-green-500"></span>
                       初級: 5問
                     </li>

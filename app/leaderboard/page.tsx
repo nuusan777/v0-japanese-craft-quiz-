@@ -177,7 +177,7 @@ export default function LeaderboardPage() {
               <Button>クイズに挑戦</Button>
             </Link>
             <Link href="/">
-              <Button variant="outline">ホームに戻る</Button>
+              <Button variant="outline">戻る</Button>
             </Link>
           </div>
         </div>

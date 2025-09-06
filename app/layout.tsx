@@ -24,17 +24,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
     return (
-      <>
-        <Head>
+      <html lang="ja">
+        <head>
           <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet" />
-        </Head>
-        <html lang="ja">
-          {/* ★★★ 変更点：フォント変数を追加 ★★★ */}
-          <body className={`font-serif ${GeistSans.variable} ${notoSerifJp.variable}`}>
-            {children}
-            <Analytics />
-          </body>
-        </html>
-      </>
+        </head>
+        <body className={`font-serif ${GeistSans.variable} ${notoSerifJp.variable}`}>
+          {children}
+          <Analytics />
+        </body>
+      </html>
     )
 }

@@ -143,6 +143,9 @@ export default function ResultsPage() {
           <Link href="/genre-selection">
             <Button variant="outline" className="w-full">他の伝統品のクイズを学ぶ</Button>
           </Link>
+          <Link href="/reviews">
+            <Button variant="outline" className="w-full">クチコミを見る</Button>
+          </Link>
         </div>
         {/* クイズ結果拡散ボタン */}
         <div className="w-full max-w-md mx-auto flex justify-center gap-4 mb-10">

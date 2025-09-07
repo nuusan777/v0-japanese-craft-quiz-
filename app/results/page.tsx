@@ -95,9 +95,6 @@ export default function ResultsPage() {
       <header className="w-full py-6 flex flex-col items-center">
         <h1 className="text-5xl font-bold text-foreground text-center mb-2 tracking-widest">クイズ結果</h1>
         <span className="text-1xl text-muted-foreground text-center">あなたの推し理解度は…</span>
-        <Link href="/" className="absolute top-6 right-6">
-          <HomeIcon />
-        </Link>
       </header>
 
       <main className="w-full flex flex-col items-center px-4">
@@ -136,8 +133,14 @@ export default function ResultsPage() {
           <Link href="/genre-selection">
             <Button variant="outline" className="w-full">他の伝統品のクイズをする</Button>
           </Link>
-          <Link href="/reviews">
+          <Link href="https://v0-japanese-craft-quiz-2ch6.vercel.app/reviews">
             <Button variant="outline" className="w-full">クチコミを見る</Button>
+          </Link>
+          <Link href="/">
+            <Button variant="outline" className="w-full flex items-center justify-center gap-2 mt-2">
+              <HomeIcon />
+              クイズ選択に戻る
+            </Button>
           </Link>
         </div>
         {/* クイズ結果拡散ボタン */}

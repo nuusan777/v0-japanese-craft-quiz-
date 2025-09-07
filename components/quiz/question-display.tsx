@@ -46,30 +46,30 @@ export function QuestionDisplay({
       <CardContent className="space-y-4 pt-4 px-0">
         {/* ★★★ 変更点：選択肢を2x2のグリッドレイアウトに ★★★ */}
         {question.options && (
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-2 justify-items-center">
             {question.options.map((option, index) => {
               const isSelected = selectedAnswer === option
               const isCorrect = option === question.answer
               const isIncorrect = showExplanation && isSelected && !isCorrect
 
               return (
-                <Button
-                  key={index}
-                  // ★★★ 変更点：ボタンの見た目を大きく変更 ★★★
-                  variant="outline"
-                  className={cn(
-                    "h-28 md:h-32 text-lg md:text-xl font-bold whitespace-normal transition-all duration-200 shadow-md",
-                    "bg-card border-border hover:bg-accent text-card-foreground font-serif", // フォントを明朝体に
-                    isSelected && !showExplanation && "ring-2 ring-primary border-primary",
-                    showExplanation && isCorrect && "!bg-primary !text-primary-foreground !border-primary",
-                    showExplanation && !isCorrect && "bg-muted text-muted-foreground",
-                    isIncorrect && "!bg-destructive/20 !text-destructive !border-destructive/50",
-                  )}
-                  onClick={() => !showExplanation && onAnswerSelect(option)}
-                  disabled={showExplanation}
-                >
-                  {option}
-                </Button>
+                  <Button
+                    key={index}
+                    variant="outline"
+                    size="square"
+                    className={cn(
+                      "text-lg md:text-xl font-bold whitespace-normal transition-all duration-200 shadow-md",
+                      "bg-card border-border hover:bg-accent text-card-foreground font-serif",
+                      isSelected && !showExplanation && "ring-2 ring-primary border-primary",
+                      showExplanation && isCorrect && "!bg-primary !text-primary-foreground !border-primary",
+                      showExplanation && !isCorrect && "bg-muted text-muted-foreground",
+                      isIncorrect && "!bg-destructive/20 !text-destructive !border-destructive/50",
+                    )}
+                    onClick={() => !showExplanation && onAnswerSelect(option)}
+                    disabled={showExplanation}
+                  >
+                    {option}
+                  </Button>
               )
             })}
           </div>

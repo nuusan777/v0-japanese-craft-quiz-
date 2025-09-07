@@ -139,7 +139,7 @@ export default function ResultsPage() {
           <Link href="/">
             <Button variant="outline" className="w-full flex items-center justify-center gap-2 mt-2">
               <HomeIcon />
-              クイズ選択に戻る
+              スタート画面
             </Button>
           </Link>
         </div>
